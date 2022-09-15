@@ -11,10 +11,18 @@ Print "Remove Old Html Pages"
 rm -rf /usr/share/nginx/html/* &>>$LOG
 Stat $?
 
-Print "Extract Frontend Archive"
+Print "Extract master Archive"
 unzip -o -d /tmp /tmp/master.zip &>>$LOG
 Stat $?
 
 Print "Copy files to Nginx path"
 mv project-html-website-master/* . &>>$LOG
 Stat $??
+
+Print "Restart Nginx"
+systemctl enable nginx &>>$LOG
+Stat $?
+
+Print "Start Nginx"
+systemctl restart nginx &>>$LOG
+Stat $?
