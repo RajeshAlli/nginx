@@ -16,5 +16,5 @@ unzip -o -d /tmp /tmp/master.zip &>>$LOG
 Stat $?
 
 Print "Copy files to Nginx path"
-mv /tmp/main/static/* /usr/share/nginx/html/. &>>$LOG
+mv project-html-website-master/* /usr/share/nginx/html/. &>>$LOG
 Stat $??
